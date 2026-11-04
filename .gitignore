@@ -17,3 +17,4 @@ target/
 # Logs and DB
 *.log
 dataBinding/
+
