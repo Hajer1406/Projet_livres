@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gestion des Livres</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/livres">Home</a>
+        </li>
+
+        <!-- Menu Livres -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLivres" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Livres
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLivres">
+            @if (authService.isAdmin()) {
+            <li><a class="dropdown-item" routerLink="/add-livre">Ajouter</a></li>
+            }
+            <li><a class="dropdown-item" routerLink="/livres">Lister</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            @if (authService.isAdmin()){
+            <li>
+              <a class="dropdown-item" routerLink="/listeEcrivains">
+                Gestion des écrivains
+              </a>
+            </li>
+            }
+          </ul>
+        </li>
+
+        <!-- Menu Recherche -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRecherche" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Recherche
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownRecherche">
+            <li>
+              <a class="dropdown-item" routerLink="/rechercheParEcrivain">
+                Recherche Par Écrivain
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/rechercheParTitre">
+                Recherche Par Titre
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto m-2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            [{{ authService.loggedUser }}]
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            @if (!authService.isloggedIn) {
+            <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+            } @else {
+            <li><a class="dropdown-item" (click)="onLogout()" role="button" style="cursor: pointer;">Logout</a></li>
+            }
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet />

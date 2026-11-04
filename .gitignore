@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+dist/
+.angular/
+
+# Build and IDE files
+target/
+*.class
+.mvn/
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs and DB
+*.log
+dataBinding/
