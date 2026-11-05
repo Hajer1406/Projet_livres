@@ -25,23 +25,6 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            @if (authService.isAdmin()){
-            <li>
-              <a class="dropdown-item" routerLink="/listeEcrivains">
-                Gestion des écrivains
-              </a>
-            </li>
-            }
-          </ul>
-        </li>
-
-        <!-- Menu Recherche -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRecherche" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Recherche
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownRecherche">
             <li>
               <a class="dropdown-item" routerLink="/rechercheParEcrivain">
                 Recherche Par Écrivain
@@ -52,6 +35,16 @@
                 Recherche Par Titre
               </a>
             </li>
+            @if (authService.isAdmin()){
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/listeEcrivains">
+                Gestion des écrivains
+              </a>
+            </li>
+            }
           </ul>
         </li>
       </ul>
